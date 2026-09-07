@@ -4,7 +4,19 @@ Compiles free-text clinical trial eligibility criteria into executable typed
 predicates, evaluates them deterministically in Python, and reports specific
 eligibility dates rather than categorical labels.
 
-**Scope: non-small cell lung cancer, English, local web UI.**
+**Scope: non-small cell lung cancer, English, 500 recruiting trials.**
+
+**Live:** <https://trial-eligibility-compiler.vercel.app> &nbsp;·&nbsp;
+[How it works](https://trial-eligibility-compiler.vercel.app/about.html) &nbsp;·&nbsp;
+[Privacy](https://trial-eligibility-compiler.vercel.app/privacy.html) &nbsp;·&nbsp;
+[Terms](https://trial-eligibility-compiler.vercel.app/terms.html)
+
+> **Not medical advice and not a medical device.** No regulator has reviewed
+> this. It is a research tool for coordinators and clinicians, it is not for
+> patients, and every output needs independent verification. 39.7% of criteria
+> never compile and are not evaluated at all, so "eligible" means *eligible on
+> the criteria that compiled*. The trial corpus is a fixed snapshot and
+> recruiting status goes stale. Do not submit identifiable patient data.
 
 ## Status
 

@@ -90,7 +90,7 @@ Slower, smaller, and worth more than all of the above:
 ### Day 3+ — durable, not spiky
 - A short write-up of the eight bugs the eval found. That is a genuinely good
   engineering post and it will outlive the launch.
-- The repository itself, with the README as the front door.
+- The repository itself, with the README as the front door: https://github.com/science182/trial-eligibility-compiler
 
 ---
 

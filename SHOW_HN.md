@@ -29,6 +29,9 @@ whole strategy.
 https://trial-eligibility-compiler.vercel.app
 ```
 
+Source: https://github.com/science182/trial-eligibility-compiler
+(HN will ask within minutes if a Show HN has no source link.)
+
 ---
 
 ## Post body
@@ -81,6 +84,9 @@ https://trial-eligibility-compiler.vercel.app
 > It's lung cancer only, the corpus is a fixed snapshot, and it is not for
 > patients — eligibility is a clinical judgement this can't make. There's an
 > honest limits page at /about.html.
+>
+> Source, including the eval harness and the hand-read gold set:
+> https://github.com/science182/trial-eligibility-compiler
 
 ---
 
@@ -131,6 +137,10 @@ Standard Show HN practice, and it is where the engineering detail goes.
 > (eligible now / eligible from a date / needs data / not eligible) are the right
 > decomposition, and whether the 39.7% that stays free text is the ceiling or
 > just where I stopped.
+>
+> The compiler is `src/compile.py`, the evaluator is `src/evaluate.py`, and the
+> measurements above are reproducible with `eval/compile_rate.py` and
+> `eval/differentiation.py`. Repo: https://github.com/science182/trial-eligibility-compiler
 >
 > Happy to go into the compiler internals if anyone wants.
 

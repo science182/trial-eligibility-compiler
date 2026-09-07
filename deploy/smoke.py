@@ -186,6 +186,9 @@ def _legal():
     home = get("/")[1].decode()
     for href in ("/privacy.html", "/terms.html", "/about.html"):
         assert href in home, f"home page does not link {href}"
+    # A Show HN with no visible source is the first thing anyone asks about.
+    assert "github.com/science182/trial-eligibility-compiler" in home, \
+        "home page does not link the source"
 
 
 @check("crawler and share metadata are present")
