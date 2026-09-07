@@ -17,6 +17,7 @@ eligibility dates rather than categorical labels.
 > never compile and are not evaluated at all, so "eligible" means *eligible on
 > the criteria that compiled*. The trial corpus is a fixed snapshot and
 > recruiting status goes stale. Do not submit identifiable patient data.
+> Full notice: [NOTICE.md](NOTICE.md).
 
 ## Status
 
