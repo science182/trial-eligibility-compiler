@@ -1,0 +1,33 @@
+# ── secrets and deployment linkage ──────────────────────────────────────
+# .env.local holds a Vercel OIDC token. Never commit it.
+.env
+.env.local
+.env*.local
+.vercel/
+.vercel.broken-root-link/
+
+# ── generated: rebuilt by a command, so it does not belong in history ───
+# deploy/build.py writes these from src/ and ui/static/.
+deploy/runtime/
+deploy/public/
+deploy/requirements.txt
+
+# src/loader.py rebuilds this in a few seconds.
+data/compiled/
+
+# eval/fetch_trec.py downloads this (80 MB of third-party benchmark data).
+data/raw/trialgpt/
+data/raw/nsclc_raw.json
+
+# deck/figures.py regenerates this from today's date.
+deck/figures.json
+
+# ── build artefacts and caches ──────────────────────────────────────────
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+*.log

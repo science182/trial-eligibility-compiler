@@ -1,0 +1,7 @@
+# A public research tool. Indexing is welcome; there is nothing private here to
+# crawl, because nothing a user submits is ever stored or served back.
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://trial-eligibility-compiler.vercel.app/sitemap.xml

@@ -1,0 +1,41 @@
+/* Shared shell for the policy pages. Same tokens as the app, set for reading:
+   one column, generous measure, no chrome competing with the text. */
+@import url("style.css");
+
+.doc { max-width: 720px; margin: 0 auto; padding: 56px 28px 96px; }
+.doc h1 { font-family: var(--serif); font-size: 34px; font-weight: 600;
+          letter-spacing: -.024em; line-height: 1.2; }
+.doc .updated { margin-top: 10px; font-size: 13px; color: var(--ink-3); }
+.doc h2 { font-family: var(--serif); font-size: 21px; font-weight: 600;
+          letter-spacing: -.018em; margin-top: 44px; }
+.doc h3 { font-size: 15px; font-weight: 600; margin-top: 28px; }
+.doc p, .doc li { font-size: 15px; line-height: 1.7; color: var(--ink-2);
+                  margin-top: 12px; }
+.doc ul { margin-top: 10px; padding-left: 20px; }
+.doc li { margin-top: 8px; }
+.doc strong { color: var(--ink); font-weight: 600; }
+.doc a { color: var(--brand-600); text-decoration: none;
+         border-bottom: 1px solid var(--brand-200); }
+.doc a:hover { border-color: var(--brand-500); }
+.doc code { font-family: var(--mono); font-size: 13px; background: var(--brand-50);
+            border: 1px solid var(--brand-100); border-radius: 5px; padding: 1px 5px; }
+.doc .callout {
+  margin-top: 22px; padding: 16px 18px; border-radius: var(--r);
+  background: var(--brand-50); border: 1px solid var(--brand-100);
+}
+.doc .callout p:first-child { margin-top: 0; }
+.doc .callout.warn { background: var(--bad-bg); border-color: var(--bad-line); }
+.doc .callout.warn strong { color: var(--bad); }
+.doc table { width: 100%; border-collapse: collapse; margin-top: 16px;
+             font-size: 14px; }
+.doc th, .doc td { text-align: left; padding: 10px 12px;
+                   border-bottom: 1px solid var(--line); vertical-align: top; }
+.doc th { font-size: 11px; letter-spacing: .09em; text-transform: uppercase;
+          color: var(--ink-4); font-weight: 600; }
+.doc td { color: var(--ink-2); }
+
+.foot { border-top: 1px solid var(--line); margin-top: 56px; padding-top: 20px;
+        font-size: 13px; color: var(--ink-3); display: flex; gap: 16px;
+        flex-wrap: wrap; }
+.foot a { color: var(--ink-3); border: 0; }
+.foot a:hover { color: var(--brand-600); }

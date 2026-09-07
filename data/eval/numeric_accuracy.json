@@ -1,0 +1,403 @@
+[
+ {
+  "id": "h-01",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "unit_conversion"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "HEMOGLOBIN 9.5 g/dL, requires >= 8 g/dL"
+ },
+ {
+  "id": "h-02",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "unit_conversion"
+  ],
+  "gold": "not_met",
+  "gold_date": null,
+  "compiled": "not_met",
+  "compiled_date": null,
+  "compiled_why": "ANC 0.8 10^9/L, requires >= 1.5 10^9/L"
+ },
+ {
+  "id": "h-03",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "unit_conversion",
+   "boundary"
+  ],
+  "gold": "not_met",
+  "gold_date": null,
+  "compiled": "not_met",
+  "compiled_date": null,
+  "compiled_why": "PLATELETS 99.999 10^9/L, requires >= 100 10^9/L"
+ },
+ {
+  "id": "h-04",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "unit_conversion",
+   "molar"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "CREATININE 0.995475 mg/dL, requires <= 2 mg/dL"
+ },
+ {
+  "id": "h-05",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "unit_conversion",
+   "boundary"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "WBC 1.5 10^9/L, requires >= 1.5 10^9/L"
+ },
+ {
+  "id": "h-06",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "exclusion"
+  ],
+  "gold": "not_met",
+  "gold_date": null,
+  "compiled": "not_met",
+  "compiled_date": null,
+  "compiled_why": "QTC 500 ms, requires > 470 ms"
+ },
+ {
+  "id": "h-07",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "exclusion",
+   "boundary",
+   "strict"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "LVEF 50 %, requires < 50 %"
+ },
+ {
+  "id": "h-08",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "exclusion"
+  ],
+  "gold": "not_met",
+  "gold_date": null,
+  "compiled": "not_met",
+  "compiled_date": null,
+  "compiled_why": "INR 3.5 ratio, requires > 2 ratio"
+ },
+ {
+  "id": "h-09",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "boundary"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "CREATININE 1.99 mg/dL, requires <= 2 mg/dL"
+ },
+ {
+  "id": "h-10",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "uln",
+   "boundary"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "CREATININE 1.65 mg/dL, requires <= 1.5xULN (= 1.65 mg/dL)"
+ },
+ {
+  "id": "h-11",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "uln",
+   "boundary"
+  ],
+  "gold": "not_met",
+  "gold_date": null,
+  "compiled": "not_met",
+  "compiled_date": null,
+  "compiled_why": "CREATININE 1.66 mg/dL, requires <= 1.5xULN (= 1.65 mg/dL)"
+ },
+ {
+  "id": "h-12",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "uln",
+   "multi_analyte"
+  ],
+  "gold": "not_met",
+  "gold_date": null,
+  "compiled": "not_met",
+  "compiled_date": null,
+  "compiled_why": "AST 200 U/L, requires <= 3xULN (= 120 U/L)"
+ },
+ {
+  "id": "h-13",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "uln",
+   "conditional"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "ALT 190 U/L, requires <= 5xULN (= 200 U/L)"
+ },
+ {
+  "id": "h-14",
+  "type": "LAB_THRESHOLD",
+  "tags": [
+   "missing_data"
+  ],
+  "gold": "undetermined",
+  "gold_date": null,
+  "compiled": "undetermined",
+  "compiled_date": null,
+  "compiled_why": "HEMOGLOBIN not reported"
+ },
+ {
+  "id": "h-15",
+  "type": "WASHOUT",
+  "tags": [
+   "days"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "7 days elapsed since 2026-08-06"
+ },
+ {
+  "id": "h-16",
+  "type": "WASHOUT",
+  "tags": [
+   "days"
+  ],
+  "gold": "pending",
+  "gold_date": "2026-08-27",
+  "compiled": "pending",
+  "compiled_date": "2026-08-27",
+  "compiled_why": "14 days washout from 2026-08-13"
+ },
+ {
+  "id": "h-17",
+  "type": "WASHOUT",
+  "tags": [
+   "weeks",
+   "boundary"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "4 weeks elapsed since 2026-07-17"
+ },
+ {
+  "id": "h-18",
+  "type": "WASHOUT",
+  "tags": [
+   "weeks"
+  ],
+  "gold": "pending",
+  "gold_date": "2026-09-02",
+  "compiled": "pending",
+  "compiled_date": "2026-09-02",
+  "compiled_why": "4 weeks washout from 2026-08-05"
+ },
+ {
+  "id": "h-19",
+  "type": "WASHOUT",
+  "tags": [
+   "calendar_month",
+   "month_end"
+  ],
+  "gold": "pending",
+  "gold_date": "2026-09-30",
+  "compiled": "pending",
+  "compiled_date": "2026-09-30",
+  "compiled_why": "6 months washout from 2026-03-31"
+ },
+ {
+  "id": "h-20",
+  "type": "WASHOUT",
+  "tags": [
+   "calendar_month",
+   "month_end"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "6 months elapsed since 2025-12-31"
+ },
+ {
+  "id": "h-21",
+  "type": "WASHOUT",
+  "tags": [
+   "calendar_month",
+   "month_end"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "6 months elapsed since 2026-08-31"
+ },
+ {
+  "id": "h-22",
+  "type": "WASHOUT",
+  "tags": [
+   "calendar_month",
+   "leap",
+   "month_end"
+  ],
+  "gold": "pending",
+  "gold_date": "2024-02-29",
+  "compiled": "pending",
+  "compiled_date": "2024-02-29",
+  "compiled_why": "6 months washout from 2023-08-31"
+ },
+ {
+  "id": "h-23",
+  "type": "WASHOUT",
+  "tags": [
+   "years",
+   "leap"
+  ],
+  "gold": "pending",
+  "gold_date": "2027-02-28",
+  "compiled": "pending",
+  "compiled_date": "2027-02-28",
+  "compiled_why": "3 years washout from 2024-02-29"
+ },
+ {
+  "id": "h-24",
+  "type": "WASHOUT",
+  "tags": [
+   "weeks"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "10 weeks elapsed since 2026-05-01"
+ },
+ {
+  "id": "h-25",
+  "type": "WASHOUT",
+  "tags": [
+   "missing_data"
+  ],
+  "gold": "undetermined",
+  "gold_date": null,
+  "compiled": "undetermined",
+  "compiled_date": null,
+  "compiled_why": "no recorded date for radiotherapy"
+ },
+ {
+  "id": "h-26",
+  "type": "WASHOUT",
+  "tags": [
+   "never_received"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "no prior transfusion; nothing to wash out"
+ },
+ {
+  "id": "h-27",
+  "type": "AGE",
+  "tags": [
+   "range"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "age 74 within 18 to 75"
+ },
+ {
+  "id": "h-28",
+  "type": "AGE",
+  "tags": [
+   "range",
+   "boundary"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "age 18 within 18 to 70"
+ },
+ {
+  "id": "h-29",
+  "type": "PRIOR_THERAPY",
+  "tags": [
+   "line_count"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "1 prior line(s) within limit"
+ },
+ {
+  "id": "h-30",
+  "type": "PRIOR_THERAPY",
+  "tags": [
+   "class_presence"
+  ],
+  "gold": "not_met",
+  "gold_date": null,
+  "compiled": "not_met",
+  "compiled_date": null,
+  "compiled_why": "prior checkpoint inhibitor on record"
+ },
+ {
+  "id": "h-31",
+  "type": "PRIOR_THERAPY",
+  "tags": [
+   "class_presence"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "prior egfr tki never given"
+ },
+ {
+  "id": "h-32",
+  "type": "PRIOR_THERAPY",
+  "tags": [
+   "line_count"
+  ],
+  "gold": "met",
+  "gold_date": null,
+  "compiled": "met",
+  "compiled_date": null,
+  "compiled_why": "4 prior line(s) within limit"
+ }
+]

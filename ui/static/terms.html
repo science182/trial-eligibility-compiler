@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of use — Trial Eligibility Compiler</title>
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="legal.css">
+</head>
+<body>
+<header class="hdr">
+  <a class="back" href="/"><span aria-hidden="true">←</span><span class="lbl">Back</span></a>
+  <div class="brand"><div class="logo">T</div>
+    <div class="name">Eligibility&nbsp;Compiler</div></div>
+</header>
+
+<main class="doc">
+  <h1>Terms of use</h1>
+  <p class="updated">Last updated 7 September 2026.</p>
+
+  <div class="callout warn">
+    <p><strong>Not medical advice, and not a medical device.</strong> This
+       software has not been reviewed or cleared by the FDA, the MHRA, the EMA
+       or any other regulator. It makes no diagnosis and no treatment
+       recommendation. It is a research and screening-support tool for
+       qualified professionals, and every output must be independently verified
+       before it informs any decision about a person's care.</p>
+  </div>
+
+  <h2>Who this is for</h2>
+  <p>Clinical trial coordinators, research nurses, clinicians, and researchers
+     evaluating whether compiled eligibility logic is useful in their workflow.</p>
+  <p><strong>It is not for patients or carers.</strong> If you or someone you
+     care for is looking for a trial, please work through your treating
+     oncologist, or start at
+     <a href="https://clinicaltrials.gov" target="_blank" rel="noopener noreferrer">ClinicalTrials.gov</a>.
+     Eligibility is a clinical judgement that this tool cannot make, and a
+     result here does not mean a trial will accept or reject you.</p>
+
+  <h2>What the tool actually does, and where it stops</h2>
+  <ul>
+    <li>It compiles trial eligibility criteria into executable predicates and
+        evaluates them deterministically. Roughly <strong>60% of criteria
+        compile</strong>; the rest remain free text and are
+        <strong>not evaluated at all</strong>. A trial shown as "eligible" has
+        only been checked against the criteria that compiled.</li>
+    <li>Extraction from your note is automated and imperfect. A missed or
+        misread value produces a wrong verdict. Every verdict shows the exact
+        sentence it was computed from so you can check it — please do.</li>
+    <li>The trial corpus is a <strong>fixed snapshot</strong> of
+        ClinicalTrials.gov, not a live feed. Recruiting status goes stale
+        quickly; sites listed as recruiting are often closed. Confirm status
+        with the trial site.</li>
+    <li>Scope is <strong>non-small cell lung cancer only</strong>, 500 trials,
+        English. Results for anything else are not meaningful.</li>
+    <li>Computed dates are exact calendar arithmetic over a date stated in your
+        note. If that anchor date is absent or wrong, the computed date is
+        meaningless — which is why the anchor is always displayed.</li>
+  </ul>
+
+  <h2>Your responsibilities</h2>
+  <ul>
+    <li><strong>Do not submit identifiable patient information.</strong> See
+        <a href="/privacy.html">Privacy</a>. There is no BAA and this is not
+        HIPAA-regulated infrastructure. Submitting protected health information
+        may breach your own obligations.</li>
+    <li>You are responsible for having the right to use any text you submit.</li>
+    <li>Do not rely on any output without independent clinical verification.</li>
+    <li>Do not use the service to attack, overload, or probe the
+        infrastructure.</li>
+  </ul>
+
+  <h2>Availability</h2>
+  <p>This is a free service offered as-is, with no uptime commitment. It may
+     change, break, or be withdrawn at any time and without notice.</p>
+
+  <h2>Disclaimer and liability</h2>
+  <p>The service is provided <strong>"as is" and "as available", without
+     warranties of any kind</strong>, express or implied, including but not
+     limited to merchantability, fitness for a particular purpose, accuracy,
+     and non-infringement.</p>
+  <p>To the maximum extent permitted by law, the author is not liable for any
+     direct, indirect, incidental, consequential or special damages arising
+     from use of, or inability to use, this service — including any clinical,
+     enrolment, or research decision made in reliance on its output. Some
+     jurisdictions do not allow certain exclusions, in which case they apply
+     only to the extent permitted.</p>
+  <p>Nothing here limits liability for fraud, or for death or personal injury
+     caused by negligence, where such limitation is not permitted by law.</p>
+
+  <h2>Data sources and attribution</h2>
+  <p>Trial records are derived from the
+     <a href="https://clinicaltrials.gov/data-api/api" target="_blank" rel="noopener noreferrer">ClinicalTrials.gov API</a>,
+     a service of the US National Library of Medicine. NLM does not endorse
+     this tool. Trial text belongs to the sponsors who registered it.</p>
+
+  <h2>Contact</h2>
+  <p><a href="mailto:gelle.learning@gmail.com">gelle.learning@gmail.com</a></p>
+
+  <div class="foot">
+    <a href="/">Tool</a><a href="/privacy.html">Privacy</a><a href="/about.html">How it works</a>
+  </div>
+</main>
+</body>
+</html>

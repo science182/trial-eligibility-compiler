@@ -1,0 +1,706 @@
+{
+ "NCT00682032": {
+  "blocking_reason": "prior systemic therapy of any kind on record",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 7,
+   "not_met": 2,
+   "pending": 0,
+   "undetermined": 10
+  }
+ },
+ "NCT01639508": {
+  "blocking_reason": "ros1 fusion absent, required",
+  "eligible_date": null,
+  "missing_fields": [
+   "biomarker:NTRK",
+   "biomarker:RET",
+   "comorbidity:GI_IMPAIRMENT",
+   "condition:gilberts",
+   "date:INFECTION_HOSPITALIZATION",
+   "date:WOUND",
+   "karnofsky",
+   "lab:QTC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 30,
+   "not_met": 3,
+   "pending": 0,
+   "undetermined": 25
+  }
+ },
+ "NCT01720836": {
+  "blocking_reason": "Stage IV, requires IA, IB, II, IIIA",
+  "eligible_date": null,
+  "missing_fields": [
+   "lab:CREATININE_CLEARANCE",
+   "lab:WBC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 14,
+   "not_met": 1,
+   "pending": 0,
+   "undetermined": 12
+  }
+ },
+ "NCT01786590": {
+  "blocking_reason": "",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "eligible_now",
+  "verdicts": {
+   "met": 3,
+   "not_met": 0,
+   "pending": 0,
+   "undetermined": 10
+  }
+ },
+ "NCT02133196": {
+  "blocking_reason": "Stage IV is excluded",
+  "eligible_date": null,
+  "missing_fields": [
+   "condition:gilberts",
+   "date:TOXICITY",
+   "lab:LVEF",
+   "lab:WBC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 14,
+   "not_met": 2,
+   "pending": 0,
+   "undetermined": 20
+  }
+ },
+ "NCT02570815": {
+  "blocking_reason": "",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "eligible_now",
+  "verdicts": {
+   "met": 1,
+   "not_met": 0,
+   "pending": 0,
+   "undetermined": 5
+  }
+ },
+ "NCT02596490": {
+  "blocking_reason": "ECOG 1, requires >= 2",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 2,
+   "not_met": 1,
+   "pending": 0,
+   "undetermined": 7
+  }
+ },
+ "NCT02978521": {
+  "blocking_reason": "hypertension present and excluded",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 3,
+   "not_met": 1,
+   "pending": 0,
+   "undetermined": 6
+  }
+ },
+ "NCT02984761": {
+  "blocking_reason": "Stage IV, requires I",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 5,
+   "not_met": 3,
+   "pending": 1,
+   "undetermined": 18
+  }
+ },
+ "NCT03093688": {
+  "blocking_reason": "AST 31 U/L, requires <= 2 U/L",
+  "eligible_date": null,
+  "missing_fields": [
+   "date:CARDIAC_DISEASE"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 4,
+   "not_met": 1,
+   "pending": 0,
+   "undetermined": 16
+  }
+ },
+ "NCT03460977": {
+  "blocking_reason": "hypertension present and excluded",
+  "eligible_date": null,
+  "missing_fields": [
+   "comorbidity:GI_IMPAIRMENT",
+   "lab:QTC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 2,
+   "not_met": 1,
+   "pending": 0,
+   "undetermined": 11
+  }
+ },
+ "NCT03769129": {
+  "blocking_reason": "",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "eligible_now",
+  "verdicts": {
+   "met": 10,
+   "not_met": 0,
+   "pending": 0,
+   "undetermined": 13
+  }
+ },
+ "NCT03778814": {
+  "blocking_reason": "",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "eligible_now",
+  "verdicts": {
+   "met": 4,
+   "not_met": 0,
+   "pending": 0,
+   "undetermined": 12
+  }
+ },
+ "NCT03786003": {
+  "blocking_reason": "prior chemotherapy on record",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 3,
+   "not_met": 1,
+   "pending": 0,
+   "undetermined": 5
+  }
+ },
+ "NCT03808337": {
+  "blocking_reason": "prior surgery never given",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 13,
+   "not_met": 1,
+   "pending": 0,
+   "undetermined": 10
+  }
+ },
+ "NCT03851445": {
+  "blocking_reason": "0 prior line(s), requires >= 1",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 5,
+   "not_met": 3,
+   "pending": 1,
+   "undetermined": 9
+  }
+ },
+ "NCT03917043": {
+  "blocking_reason": "alk fusion absent, required",
+  "eligible_date": null,
+  "missing_fields": [
+   "comorbidity:GI_IMPAIRMENT"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 7,
+   "not_met": 1,
+   "pending": 1,
+   "undetermined": 17
+  }
+ },
+ "NCT03953144": {
+  "blocking_reason": "no machine-checkable criteria; needs manual review",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "undetermined",
+  "verdicts": {
+   "met": 0,
+   "not_met": 0,
+   "pending": 0,
+   "undetermined": 7
+  }
+ },
+ "NCT04136535": {
+  "blocking_reason": "ECOG 1, requires <= 0",
+  "eligible_date": null,
+  "missing_fields": [
+   "comorbidity:GI_IMPAIRMENT",
+   "lab:INR",
+   "lab:QTC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 12,
+   "not_met": 2,
+   "pending": 0,
+   "undetermined": 11
+  }
+ },
+ "NCT04144569": {
+  "blocking_reason": "1 criteria need data",
+  "eligible_date": null,
+  "missing_fields": [
+   "biomarker:HER2"
+  ],
+  "state": "undetermined",
+  "verdicts": {
+   "met": 1,
+   "not_met": 0,
+   "pending": 0,
+   "undetermined": 5
+  }
+ },
+ "NCT04181060": {
+  "blocking_reason": "EGFR L858R absent, must be absent",
+  "eligible_date": null,
+  "missing_fields": [
+   "comorbidity:GI_IMPAIRMENT",
+   "lab:QTC",
+   "lab:WBC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 20,
+   "not_met": 5,
+   "pending": 0,
+   "undetermined": 18
+  }
+ },
+ "NCT04198766": {
+  "blocking_reason": "prior checkpoint inhibitor never given",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 15,
+   "not_met": 6,
+   "pending": 0,
+   "undetermined": 4
+  }
+ },
+ "NCT04267848": {
+  "blocking_reason": "EGFR mutation present, must be absent",
+  "eligible_date": null,
+  "missing_fields": [
+   "lab:CREATININE_CLEARANCE"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 15,
+   "not_met": 3,
+   "pending": 0,
+   "undetermined": 10
+  }
+ },
+ "NCT04282044": {
+  "blocking_reason": "2 criteria need data",
+  "eligible_date": null,
+  "missing_fields": [
+   "lab:INR",
+   "lab:LYMPHOCYTES"
+  ],
+  "state": "undetermined",
+  "verdicts": {
+   "met": 15,
+   "not_met": 0,
+   "pending": 1,
+   "undetermined": 13
+  }
+ },
+ "NCT04297605": {
+  "blocking_reason": "ECOG 1, requires >= 2",
+  "eligible_date": null,
+  "missing_fields": [
+   "lab:CREATININE_CLEARANCE"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 6,
+   "not_met": 1,
+   "pending": 0,
+   "undetermined": 7
+  }
+ },
+ "NCT04302025": {
+  "blocking_reason": "Stage IV, requires IB, IIA, IIB, IIIA, IIIB",
+  "eligible_date": null,
+  "missing_fields": [
+   "date:INFECTION_HOSPITALIZATION"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 12,
+   "not_met": 3,
+   "pending": 1,
+   "undetermined": 12
+  }
+ },
+ "NCT04335292": {
+  "blocking_reason": "EGFR mutation present, required",
+  "eligible_date": null,
+  "missing_fields": [
+   "comorbidity:GI_IMPAIRMENT",
+   "lab:CREATININE_CLEARANCE",
+   "lab:QTC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 17,
+   "not_met": 5,
+   "pending": 2,
+   "undetermined": 17
+  }
+ },
+ "NCT04389632": {
+  "blocking_reason": "prior chemotherapy on record",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 12,
+   "not_met": 1,
+   "pending": 0,
+   "undetermined": 23
+  }
+ },
+ "NCT04410796": {
+  "blocking_reason": "hypertension present and excluded",
+  "eligible_date": null,
+  "missing_fields": [
+   "comorbidity:GI_IMPAIRMENT",
+   "condition:gilberts",
+   "karnofsky",
+   "lab:CREATININE_CLEARANCE",
+   "lab:QTC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 25,
+   "not_met": 1,
+   "pending": 1,
+   "undetermined": 26
+  }
+ },
+ "NCT04467723": {
+  "blocking_reason": "alk mutation absent, required",
+  "eligible_date": null,
+  "missing_fields": [
+   "lab:LVEF"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 19,
+   "not_met": 3,
+   "pending": 0,
+   "undetermined": 16
+  }
+ },
+ "NCT04527419": {
+  "blocking_reason": "prior chemotherapy on record",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 3,
+   "not_met": 1,
+   "pending": 0,
+   "undetermined": 6
+  }
+ },
+ "NCT04550104": {
+  "blocking_reason": "Stage IV, requires IIB, III",
+  "eligible_date": null,
+  "missing_fields": [
+   "comorbidity:GI_IMPAIRMENT",
+   "date:TOXICITY",
+   "karnofsky",
+   "lab:QTC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 17,
+   "not_met": 2,
+   "pending": 0,
+   "undetermined": 27
+  }
+ },
+ "NCT04585490": {
+  "blocking_reason": "Stage IV, requires III",
+  "eligible_date": null,
+  "missing_fields": [
+   "comorbidity:GILBERTS_SYNDROME",
+   "comorbidity:GI_IMPAIRMENT",
+   "lab:CREATININE_CLEARANCE"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 28,
+   "not_met": 3,
+   "pending": 1,
+   "undetermined": 18
+  }
+ },
+ "NCT04585750": {
+  "blocking_reason": "3 prior line(s), requires exactly 1",
+  "eligible_date": null,
+  "missing_fields": [
+   "biomarker:TP53",
+   "comorbidity:GI_IMPAIRMENT"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 20,
+   "not_met": 4,
+   "pending": 0,
+   "undetermined": 7
+  }
+ },
+ "NCT04606446": {
+  "blocking_reason": "Stage IV is excluded",
+  "eligible_date": null,
+  "missing_fields": [
+   "lab:QTC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 14,
+   "not_met": 2,
+   "pending": 0,
+   "undetermined": 10
+  }
+ },
+ "NCT04616209": {
+  "blocking_reason": "2 criteria need data",
+  "eligible_date": null,
+  "missing_fields": [
+   "lab:CREATININE_CLEARANCE",
+   "lab:LVEF"
+  ],
+  "state": "undetermined",
+  "verdicts": {
+   "met": 14,
+   "not_met": 0,
+   "pending": 0,
+   "undetermined": 15
+  }
+ },
+ "NCT04631770": {
+  "blocking_reason": "Stage IV, requires IA",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 1,
+   "not_met": 3,
+   "pending": 0,
+   "undetermined": 5
+  }
+ },
+ "NCT04683250": {
+  "blocking_reason": "EGFR mutation present, required",
+  "eligible_date": null,
+  "missing_fields": [
+   "biomarker:RET",
+   "lab:QTC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 9,
+   "not_met": 2,
+   "pending": 1,
+   "undetermined": 15
+  }
+ },
+ "NCT04686305": {
+  "blocking_reason": "3 prior line(s), requires exactly 1",
+  "eligible_date": null,
+  "missing_fields": [
+   "biomarker:HER2"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 13,
+   "not_met": 3,
+   "pending": 0,
+   "undetermined": 8
+  }
+ },
+ "NCT04691817": {
+  "blocking_reason": "prior checkpoint inhibitor never given",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 8,
+   "not_met": 1,
+   "pending": 0,
+   "undetermined": 2
+  }
+ },
+ "NCT04701476": {
+  "blocking_reason": "EGFR mutation present, must be absent",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "blocked",
+  "verdicts": {
+   "met": 6,
+   "not_met": 3,
+   "pending": 1,
+   "undetermined": 3
+  }
+ },
+ "NCT04728724": {
+  "blocking_reason": "Stage IV, requires III",
+  "eligible_date": null,
+  "missing_fields": [
+   "lab:APTT",
+   "lab:PT"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 14,
+   "not_met": 4,
+   "pending": 0,
+   "undetermined": 16
+  }
+ },
+ "NCT04762199": {
+  "blocking_reason": "prior egfr tki on record",
+  "eligible_date": null,
+  "missing_fields": [
+   "condition:gilberts",
+   "lab:LVEF",
+   "lab:QTC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 13,
+   "not_met": 3,
+   "pending": 2,
+   "undetermined": 25
+  }
+ },
+ "NCT04777084": {
+  "blocking_reason": "EGFR mutation present, must be absent",
+  "eligible_date": null,
+  "missing_fields": [
+   "date:DISEASE_PROGRESSION",
+   "date:WOUND",
+   "lab:BLOOD_PRESSURE",
+   "lab:CREATININE_CLEARANCE",
+   "lab:INR",
+   "lab:QTC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 21,
+   "not_met": 9,
+   "pending": 0,
+   "undetermined": 19
+  }
+ },
+ "NCT04778839": {
+  "blocking_reason": "prior anticancer therapy on record",
+  "eligible_date": null,
+  "missing_fields": [
+   "lab:LVEF",
+   "lab:PT"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 13,
+   "not_met": 5,
+   "pending": 0,
+   "undetermined": 13
+  }
+ },
+ "NCT04789486": {
+  "blocking_reason": "Stage IV, requires III, IIIA, IIIB, IIIC",
+  "eligible_date": null,
+  "missing_fields": [
+   "lab:CREATININE_CLEARANCE"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 11,
+   "not_met": 2,
+   "pending": 1,
+   "undetermined": 21
+  }
+ },
+ "NCT04806412": {
+  "blocking_reason": "",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "eligible_now",
+  "verdicts": {
+   "met": 2,
+   "not_met": 0,
+   "pending": 0,
+   "undetermined": 3
+  }
+ },
+ "NCT04853342": {
+  "blocking_reason": "Stage IV, requires IB, II, IIIA",
+  "eligible_date": null,
+  "missing_fields": [
+   "comorbidity:GI_IMPAIRMENT",
+   "lab:QTC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 7,
+   "not_met": 5,
+   "pending": 0,
+   "undetermined": 14
+  }
+ },
+ "NCT04892953": {
+  "blocking_reason": "Stage IV, requires III",
+  "eligible_date": null,
+  "missing_fields": [
+   "comorbidity:GILBERTS_SYNDROME",
+   "date:DISEASE_PROGRESSION",
+   "lab:CREATININE_CLEARANCE",
+   "lab:QTC"
+  ],
+  "state": "blocked",
+  "verdicts": {
+   "met": 23,
+   "not_met": 3,
+   "pending": 1,
+   "undetermined": 29
+  }
+ },
+ "NCT04895709": {
+  "blocking_reason": "",
+  "eligible_date": null,
+  "missing_fields": [],
+  "state": "eligible_now",
+  "verdicts": {
+   "met": 12,
+   "not_met": 0,
+   "pending": 0,
+   "undetermined": 5
+  }
+ }
+}

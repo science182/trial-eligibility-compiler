@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — Trial Eligibility Compiler</title>
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="legal.css">
+</head>
+<body>
+<header class="hdr">
+  <a class="back" href="/"><span aria-hidden="true">←</span><span class="lbl">Back</span></a>
+  <div class="brand"><div class="logo">T</div>
+    <div class="name">Eligibility&nbsp;Compiler</div></div>
+</header>
+
+<main class="doc">
+  <h1>Privacy</h1>
+  <p class="updated">Last updated 7 September 2026. This page describes what
+     actually happens, and each claim below was verified against the running
+     deployment rather than assumed.</p>
+
+  <div class="callout warn">
+    <p><strong>Do not upload identifiable patient data.</strong> This service
+       runs on ordinary commercial hosting. There is no Business Associate
+       Agreement, and it is not configured for HIPAA-regulated protected health
+       information. Use de-identified, synthetic, or your own test notes.</p>
+  </div>
+
+  <h2>What happens to a note you submit</h2>
+  <p>When you choose a file, it is read <strong>in your browser</strong> using
+     the browser's own file API. The file itself is never uploaded.</p>
+  <p>When you press <strong>Match</strong>, the text currently in the box is
+     sent to this site's own server so it can be compared against the trial
+     corpus. There it is held in memory for the length of that single request,
+     used to compute the result, and discarded when the request ends. It is
+     <strong>not written to disk, not placed in a database, not retained after
+     the response, and not used to train anything.</strong></p>
+  <p>We verified this by submitting a note containing a unique marker string and
+     then searching the platform's retained logs for it. The marker did not
+     appear.</p>
+
+  <h2>What is recorded</h2>
+  <p>Being precise matters more than sounding reassuring, so here is the whole
+     picture, including the parts we do not control.</p>
+  <table>
+    <tr><th>Data</th><th>Retained?</th><th>By whom</th></tr>
+    <tr><td>The text of your note</td><td><strong>No</strong></td>
+        <td>—</td></tr>
+    <tr><td>Files you select</td><td><strong>No</strong> — never leave your browser</td>
+        <td>—</td></tr>
+    <tr><td>Results of a match</td><td><strong>No</strong></td><td>—</td></tr>
+    <tr><td>Request metadata: timestamp, HTTP method, URL path, status code,
+            duration</td>
+        <td>Yes, briefly</td><td>Vercel, our hosting provider</td></tr>
+    <tr><td>Your IP address and coarse region</td>
+        <td>Yes, briefly, at the network edge</td><td>Vercel</td></tr>
+    <tr><td>Your browser's local calendar date, sent so that computed
+            eligibility dates are correct in your timezone</td>
+        <td>Appears in request metadata</td><td>Vercel</td></tr>
+  </table>
+  <p>Log retention and handling are governed by
+     <a href="https://vercel.com/legal/privacy-policy" target="_blank"
+        rel="noopener noreferrer">Vercel's privacy policy</a>. We do not export,
+     analyse, or link these logs to anything.</p>
+
+  <h2>What this site does not do</h2>
+  <ul>
+    <li><strong>No accounts.</strong> There is no sign-up, no email address, no
+        password, no profile.</li>
+    <li><strong>No cookies.</strong> The site sets none, for any purpose.</li>
+    <li><strong>No analytics and no trackers.</strong> There is no Google
+        Analytics, no pixel, no session recording, no fingerprinting.</li>
+    <li><strong>No third-party requests.</strong> The page loads only its own
+        HTML, CSS and JavaScript. This is enforced in the browser by a Content
+        Security Policy of <code>default-src 'self'</code>, so a third-party
+        request would be blocked even if one were added by mistake.</li>
+    <li><strong>No advertising, and nothing is sold or shared.</strong></li>
+  </ul>
+  <p>You can confirm all of this yourself: open your browser's network panel and
+     watch what the page requests, or read
+     <a href="https://github.com/" target="_blank" rel="noopener noreferrer">the
+     source</a>, which is the same code that is deployed.</p>
+
+  <h2>Links to ClinicalTrials.gov</h2>
+  <p>Every trial links to its record on ClinicalTrials.gov. Following one takes
+     you to a US National Library of Medicine site with its own privacy policy.
+     We send no information about you along with that link — the page sets
+     <code>Referrer-Policy: no-referrer</code>.</p>
+
+  <h2>Children</h2>
+  <p>This is a professional research tool and is not directed to children. We
+     knowingly collect nothing from anyone, of any age.</p>
+
+  <h2>Changes and contact</h2>
+  <p>If this page changes materially, the date at the top changes with it. For
+     questions about privacy, or to raise a problem with the service, contact
+     <a href="mailto:gelle.learning@gmail.com">gelle.learning@gmail.com</a>.</p>
+
+  <div class="foot">
+    <a href="/">Tool</a><a href="/terms.html">Terms</a><a href="/about.html">How it works</a>
+  </div>
+</main>
+</body>
+</html>

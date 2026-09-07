@@ -1,0 +1,13 @@
+# The package is what build.py produces; nothing else goes up.
+build.py
+smoke.py
+README.md
+__pycache__
+*.pyc
+.DS_Store
+
+# Written by `vercel link`. Contains an OIDC token — must never be uploaded.
+# Vercel ignores .env* by default; this is belt and braces.
+.env.local
+.env*.local
+.vercel

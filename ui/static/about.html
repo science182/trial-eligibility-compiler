@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works — Trial Eligibility Compiler</title>
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="legal.css">
+</head>
+<body>
+<header class="hdr">
+  <a class="back" href="/"><span aria-hidden="true">←</span><span class="lbl">Back</span></a>
+  <div class="brand"><div class="logo">T</div>
+    <div class="name">Eligibility&nbsp;Compiler</div></div>
+</header>
+
+<main class="doc">
+  <h1>How it works</h1>
+  <p class="updated">And, more usefully, where it fails.</p>
+
+  <h2>The idea</h2>
+  <p>Trial eligibility criteria are prose written for a human to read one trial
+     at a time. Most systems that automate this hand the whole sentence to a
+     language model and ask for a verdict — which means the model is doing the
+     arithmetic, the unit conversion and the calendar maths.</p>
+  <p>This does the opposite. Criteria are <strong>compiled once, offline</strong>,
+     into typed executable predicates. At query time the comparison is ordinary
+     Python: no model runs, so the same note always produces the same answer,
+     and every number can be traced to the sentence it came from.</p>
+
+  <h2>What it produces</h2>
+  <ul>
+    <li><strong>A date, not a category.</strong> A trial blocked only by a
+        washout is not "ineligible" — it opens on a specific day, computed as
+        calendar arithmetic from the last-dose date in the note.</li>
+    <li><strong>A citation for every verdict.</strong> Click any criterion and
+        the exact sentence it was computed from highlights in the note.</li>
+    <li><strong>An abstention when the record is silent.</strong> A field that
+        was never recorded is <em>unknown</em>, never <em>negative</em>. The
+        tool says which test would resolve it.</li>
+  </ul>
+
+  <h2>Measured, including where it loses</h2>
+  <table>
+    <tr><th>Measurement</th><th>Result</th></tr>
+    <tr><td>Eligibility criteria that compile to an executable predicate</td>
+        <td>60.3% of 13,202 criteria</td></tr>
+    <tr><td>Errors on 32 held-out numeric criteria, written after the system
+            was frozen</td><td>0</td></tr>
+    <tr><td>Language-model calls per query</td><td>0</td></tr>
+    <tr><td>Determinism: distinct outputs over 20 identical runs</td><td>1</td></tr>
+    <tr><td>Verdicts that resolve to a highlightable source sentence</td>
+        <td>75.6%</td></tr>
+    <tr><td>Ranking on the TREC 2022 benchmark (NDCG@10)</td>
+        <td><strong>0.36, against TrialGPT's published 0.73</strong></td></tr>
+  </table>
+  <p>That last row is the honest weak point and it is here on purpose. Those
+     benchmark notes are roughly 600 characters with no lab values and no dates,
+     so not one washout or lab predicate can fire — the benchmark does not
+     contain the inputs this system runs on. That explains the gap; it does not
+     erase it.</p>
+
+  <h2>Limits worth knowing before you trust it</h2>
+  <ul>
+    <li><strong>Forty percent of criteria are not evaluated.</strong> They stay
+        free text. "Eligible" means "eligible on the criteria that compiled".</li>
+    <li><strong>Extraction errors propagate.</strong> Mitigated by showing the
+        source span for every field and abstaining rather than guessing, but not
+        eliminated.</li>
+    <li><strong>The corpus is a snapshot</strong>, taken 14 August 2026.
+        Recruiting status ages badly; every trial links to its live registry
+        record.</li>
+    <li><strong>Lung cancer only.</strong> Trial density varies several-fold
+        across cancer types, so none of these numbers transfer.</li>
+  </ul>
+
+  <h2>Data source</h2>
+  <p>500 recruiting interventional NSCLC trials from the
+     <a href="https://clinicaltrials.gov/data-api/api" target="_blank" rel="noopener noreferrer">ClinicalTrials.gov API v2</a>,
+     a service of the US National Library of Medicine, which does not endorse
+     this tool.</p>
+
+  <div class="foot">
+    <a href="/">Tool</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a>
+  </div>
+</main>
+</body>
+</html>
