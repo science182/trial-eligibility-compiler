@@ -721,6 +721,7 @@ async function run() {
     const first = dated[0] || ranked("eligible_now")[0] || DATA.trials[0];
     if (first) select(first.id);
     $("#list").scrollTop = 0;
+    maybeAskWho();
   } catch (err) {
     showResults();
     $("#detail").innerHTML = `<div class="err">${esc(err.message)}</div>`;
@@ -758,9 +759,9 @@ $("#palette-open").addEventListener("click", () => DATA && openPalette());
 
    sessionStorage holds one flag so a reload inside the same tab is not counted
    twice. That flag never leaves the browser and dies with the tab. */
-function pulse(event, referrer) {
+function pulse(event, referrer, value) {
   try {
-    const body = JSON.stringify({ e: event, r: referrer || "" });
+    const body = JSON.stringify({ e: event, r: referrer || "", v: value || "" });
     if (navigator.sendBeacon) {
       navigator.sendBeacon("/api/pulse", new Blob([body], { type: "application/json" }));
     } else {
@@ -779,6 +780,47 @@ try {
   // anyway; an over-count on a reload beats losing the visitor entirely.
   pulse("visit", document.referrer);
 }
+
+/* ── who did this reach ──────────────────────────────────────────────── */
+/* 5,000 anonymous visits and 50 anonymous visits look identical if you cannot
+   tell who they were. This asks once, optionally, after the tool has already
+   done something worth judging -- never on arrival, where it would be a toll
+   booth in front of a page that has not earned an answer yet. */
+
+const WHO_DELAY = 12_000;
+const CONTACT = "gelle.learning@gmail.com";
+
+function whoAnswer(role) {
+  pulse("role", null, role);
+  const who = $("#who");
+  // The one answer worth following up on gets a way to follow up. The rest get
+  // an acknowledgement and their screen back.
+  who.innerHTML = role === "screens_patients"
+    ? `<span class="who-thanks">Thank you — that is the answer this was asking
+         for. If it got anything wrong on a real note, I would rather hear it
+         than not:
+         <a href="mailto:${CONTACT}?subject=Trial%20Eligibility%20Compiler">${CONTACT}</a>.</span>`
+    : `<span class="who-thanks">Thank you.</span>`;
+  try { sessionStorage.setItem("tec.who", "1"); } catch { /* private mode */ }
+}
+
+function maybeAskWho() {
+  try { if (sessionStorage.getItem("tec.who")) return; } catch { /* ignore */ }
+  setTimeout(() => {
+    // Only if they are still on the results -- asking someone who has gone back
+    // to the intake screen is asking about something they are no longer doing.
+    if (!$("#strip").hidden) $("#who").hidden = false;
+  }, WHO_DELAY);
+}
+
+$("#who").addEventListener("click", (e) => {
+  const btn = e.target.closest("button[data-role]");
+  if (btn) return whoAnswer(btn.dataset.role);
+  if (e.target.id === "who-x") {
+    $("#who").hidden = true;
+    try { sessionStorage.setItem("tec.who", "1"); } catch { /* ignore */ }
+  }
+});
 
 /* ─────────────────────────────────────────── document intake ── */
 /* The landing asks for a document instead of handing you one. Everything is

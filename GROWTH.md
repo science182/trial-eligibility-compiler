@@ -4,6 +4,11 @@ Written 8 September 2026. Companion to `DISTRIBUTION.md`, which covers what
 *not* to do and why; that document's constraints are not restated here and they
 have not relaxed. Read it first.
 
+**If you only care about reaching people who would genuinely use this, read
+`AUDIENCE.md` instead.** It names them, ranks them from the corpus, and argues
+that the tool fits a referring oncologist better than the site coordinators this
+document assumes.
+
 Two halves: the instrument that tells you whether any of this is working, and
 the plan.
 

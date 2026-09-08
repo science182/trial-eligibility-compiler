@@ -224,8 +224,28 @@ def _counters():
                       ("", "direct")):
         assert _counters.source(raw) == want, (raw, _counters.source(raw))
 
-    # A closed event set, so a client typo cannot create unbounded keys.
+    # Closed sets, so a client typo -- or a crafted body -- cannot create an
+    # unbounded number of keys in the store.
     assert set(_counters.EVENTS) == {"visit", "doc", "match"}, _counters.EVENTS
+    assert set(_counters.ROLES) == {"screens_patients", "clinician",
+                                    "researcher", "engineer", "curious"}
+    assert post("/api/pulse", {"e": "role", "v": "screens_patients"})[0] == 204
+    assert post("/api/pulse", {"e": "role", "v": "chief of staff"})[0] == 204
+
+
+@check("the tool asks who it reached, and says so on both policy pages")
+def _who():
+    home = get("/")[1].decode()
+    # The button that matters is the one whose answer decides what gets built.
+    assert 'data-role="screens_patients"' in home, "the role question is missing"
+    assert home.count("data-role=") == 5, home.count("data-role=")
+    # A question the tool asks has to appear on the page that lists what is
+    # recorded, or the privacy page is out of date the day it ships. Both
+    # phrases are chosen to survive the source wrapping.
+    priv = get("/privacy.html")[1].decode()
+    assert "There is a fourth" in priv, "privacy page does not mention the question"
+    assert "who you are" in priv, "privacy page does not say what is asked"
+    assert "who you are" in get("/stats.html")[1].decode()
 
 
 @check("the usage page ships and is reachable from the privacy page")

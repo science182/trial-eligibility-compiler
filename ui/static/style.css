@@ -597,3 +597,38 @@ mark.on { background: var(--mark); color: var(--ink); }
   .sitefoot { padding: 10px 14px; gap: 12px; font-size: 12px; }
   .sitefoot-note { margin-left: 0; flex-basis: 100%; }
 }
+
+/* ── who did this reach ────────────────────────────────────────────────── */
+/* One line in the flow rather than a floating card: this is a question the
+   tool asks, not a widget bolted onto it, and it should be as easy to ignore
+   as it is to answer. */
+.who {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-top: 10px; padding: 9px 14px;
+  background: var(--brand-50); border: 1px solid var(--brand-100);
+  border-radius: var(--r); font-size: 12.5px;
+}
+.who-q { color: var(--ink-3); font-weight: 500; }
+.who-opts { display: flex; gap: 6px; flex-wrap: wrap; }
+.who-opts button {
+  font: inherit; color: var(--brand-700); background: var(--surface);
+  border: 1px solid var(--brand-200); border-radius: 999px;
+  padding: 4px 11px; cursor: pointer;
+  transition: background .12s, border-color .12s;
+}
+.who-opts button:hover { background: var(--brand-100); border-color: var(--brand-500); }
+.who-opts button:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 1px; }
+/* The first option is the one answer that changes what gets built next. */
+.who-opts button:first-child { border-color: var(--brand-500); font-weight: 500; }
+.who-x {
+  margin-left: auto; font-size: 16px; line-height: 1; color: var(--ink-4);
+  background: none; border: 0; cursor: pointer; padding: 2px 4px;
+}
+.who-x:hover { color: var(--ink-2); }
+.who-thanks { color: var(--ink-2); }
+.who-thanks a { color: var(--brand-600); }
+
+@media (max-width: 720px) {
+  .who { font-size: 12px; padding: 8px 11px; }
+  .who-x { display: none; }
+}

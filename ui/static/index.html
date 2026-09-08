@@ -95,6 +95,21 @@ NSCLC trials. Every verdict is deterministic and cites the sentence it came from
   <div class="counts" id="counts"></div>
   <div class="work" id="work"></div>
   <div class="patient" id="patient"></div>
+  <!-- Asked once, a while after the first match, and only ever answered by
+       choice. Anonymous traffic cannot distinguish an engineer reading about
+       the compiler from a coordinator who would use it, and that is the only
+       distinction worth knowing. -->
+  <div class="who" id="who" hidden>
+    <span class="who-q">Who did this reach?</span>
+    <div class="who-opts">
+      <button type="button" data-role="screens_patients">I screen patients for trials</button>
+      <button type="button" data-role="clinician">Clinician</button>
+      <button type="button" data-role="researcher">Researcher</button>
+      <button type="button" data-role="engineer">Engineer</button>
+      <button type="button" data-role="curious">Just curious</button>
+    </div>
+    <button type="button" class="who-x" id="who-x" aria-label="Dismiss">&times;</button>
+  </div>
 </section>
 
 <div class="split" id="split" hidden>

@@ -46,6 +46,26 @@ function chart(daily) {
   </div>`;
 }
 
+/* Self-declared, optional, and therefore a sample rather than a census -- so it
+   is labelled as one. The count of people who screen patients is the number
+   this whole project is actually waiting on. */
+const ROLE_LABEL = {
+  screens_patients: "Screens patients for trials",
+  clinician: "Clinician",
+  researcher: "Researcher",
+  engineer: "Engineer",
+  curious: "Just curious",
+};
+
+function roles(r) {
+  const rows = Object.entries(r);
+  if (!rows.length) return "";
+  const total = rows.reduce((a, [, v]) => a + v, 0);
+  return `<div class="u-chart"><h3>Who answered — ${n(total)} people, self-declared</h3>
+    <table class="u-srcs">${rows.map(([k, v]) =>
+      `<tr><td>${esc(ROLE_LABEL[k] || k)}</td><td>${n(v)}</td></tr>`).join("")}</table></div>`;
+}
+
 function sources(src) {
   const rows = Object.entries(src);
   if (!rows.length) return "";
@@ -72,6 +92,7 @@ fetch("/api/pulse?days=30")
     }
     el.innerHTML = tiles(d.totals || {}) +
                    ((d.daily || []).length ? chart(d.daily) : "") +
+                   roles(d.roles || {}) +
                    sources(d.sources || {});
   })
   .catch(() => {

@@ -59,6 +59,15 @@ EVENTS = {
     "match": "m",     # a match was actually run
 }
 
+# Answers to the one optional question the tool asks after a match: who are you.
+# Traffic is anonymous by design, which makes it impossible to tell 5,000
+# engineers from 5,000 coordinators -- and that is the only distinction that
+# decides whether this project is worth continuing. A self-declared answer from
+# a closed set is the least invasive instrument that can tell them apart: it is
+# volunteered, it is one of five words, and it is added to a total rather than
+# attached to anybody.
+ROLES = ("screens_patients", "clinician", "researcher", "engineer", "curious")
+
 # Referrers are only recorded under a name from this list. An arrivals report
 # exists to answer "which post worked", and that question only ever has a
 # handful of candidate answers -- so an allowlist loses nothing and removes any
@@ -158,6 +167,13 @@ def record(event, referrer=None, when=None):
     _pipeline(cmds)
 
 
+def record_role(role):
+    """Add one to a self-declared role total. Unknown values are dropped."""
+    if role not in ROLES or not configured():
+        return
+    _pipeline([["HINCRBY", f"{P}role", role, "1"]])
+
+
 def _int(v):
     try:
         return int(v)
@@ -171,18 +187,20 @@ def report(days=30, today=None):
     span = [(end - timedelta(days=i)).isoformat() for i in range(days - 1, -1, -1)]
 
     if not configured():
-        return {"configured": False, "totals": {}, "daily": [], "sources": {},
-                "days": days}
+        return {"configured": False, "totals": {}, "daily": [],
+                "sources": {}, "roles": {}, "days": days}
 
     cmds = [["GET", f"{P}{c}:all"] for c in EVENTS.values()]
     for code in EVENTS.values():
         cmds.append(["MGET"] + [f"{P}{code}:{d}" for d in span])
     cmds.append(["HGETALL", f"{P}ref"])
+    cmds.append(["HGETALL", f"{P}role"])
 
     res = _pipeline(cmds)
     if res is None:
         return {"configured": True, "error": "counter store unreachable",
-                "totals": {}, "daily": [], "sources": {}, "days": days}
+                "totals": {}, "daily": [], "sources": {}, "roles": {},
+                "days": days}
 
     out = [r.get("result") if isinstance(r, dict) else r for r in res]
     names = list(EVENTS)
@@ -197,9 +215,12 @@ def report(days=30, today=None):
              for i, d in enumerate(span)]
 
     # HGETALL comes back as a flat [field, value, field, value] list.
-    flat = out[-1] or []
-    sources = {flat[i]: _int(flat[i + 1]) for i in range(0, len(flat) - 1, 2)}
+    def hash_of(flat):
+        flat = flat or []
+        pairs = {flat[i]: _int(flat[i + 1]) for i in range(0, len(flat) - 1, 2)}
+        return dict(sorted(pairs.items(), key=lambda kv: -kv[1]))
 
     return {"configured": True, "totals": totals, "daily": daily,
-            "sources": dict(sorted(sources.items(), key=lambda kv: -kv[1])),
+            "sources": hash_of(out[-2]),
+            "roles": hash_of(out[-1]),
             "days": days}

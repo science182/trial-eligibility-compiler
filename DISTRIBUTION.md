@@ -4,8 +4,9 @@ Written 7 September 2026, revised 8 September. Two things here: what is
 genuinely ready, and an honest read on the users-in-a-week goal.
 
 **The two-week plan to 5,000 visitors, and the usage counters that measure it,
-are in `GROWTH.md`.** This document is the constraints. Read it first — none of
-them have relaxed.
+are in `GROWTH.md`. Who would actually use the tool, and where they are, is in
+`AUDIENCE.md`.** This document is the constraints. Read it first — none of them
+have relaxed.
 
 ---
 

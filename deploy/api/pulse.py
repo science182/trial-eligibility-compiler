@@ -31,7 +31,11 @@ class handler(BaseHTTPRequestHandler):
         # in somebody's console for a counter that does not matter to them.
         req = read_json(self, limit=2000) or {}
         try:
-            _counters.record(str(req.get("e") or ""), req.get("r"))
+            event = str(req.get("e") or "")
+            if event == "role":
+                _counters.record_role(str(req.get("v") or ""))
+            else:
+                _counters.record(event, req.get("r"))
         except Exception:                             # noqa: BLE001
             pass
         self.send_response(204)
