@@ -29,6 +29,7 @@ PUBLIC = HERE / "public"
 sys.path.insert(0, str(HERE / "api"))
 
 import assess as assess_fn  # noqa: E402
+import pulse as pulse_fn  # noqa: E402
 import samples as samples_fn  # noqa: E402
 
 PORT = 8731
@@ -50,13 +51,18 @@ class Dispatch(SimpleHTTPRequestHandler):
             return samples_fn.handler.do_GET(self)
         if path == "/api/assess":
             return assess_fn.handler.do_GET(self)
+        if path == "/api/pulse":
+            return pulse_fn.handler.do_GET(self)
         if path == "/":
             self.path = "/index.html"
         return super().do_GET()
 
     def do_POST(self):
-        if urlparse(self.path).path == "/api/assess":
+        path = urlparse(self.path).path
+        if path == "/api/assess":
             return assess_fn.handler.do_POST(self)
+        if path == "/api/pulse":
+            return pulse_fn.handler.do_POST(self)
         self.send_error(404)
 
 
@@ -69,11 +75,15 @@ def post(path, obj, raw=None):
     body = raw if raw is not None else json.dumps(obj).encode()
     req = urllib.request.Request(BASE + path, data=body,
                                  headers={"Content-Type": "application/json"})
+    # A 204 carries no body by definition, so the parse has to be optional.
+    def read(resp):
+        raw = resp.read()
+        return json.loads(raw) if raw else None
     try:
         with urllib.request.urlopen(req) as r:
-            return r.status, json.loads(r.read())
+            return r.status, read(r)
     except urllib.error.HTTPError as e:
-        return e.code, json.loads(e.read())
+        return e.code, read(e)
 
 
 CHECKS = []
@@ -189,6 +199,45 @@ def _legal():
     # A Show HN with no visible source is the first thing anyone asks about.
     assert "github.com/science182/trial-eligibility-compiler" in home, \
         "home page does not link the source"
+
+
+@check("counting works, and stays off when it is not configured")
+def _counters():
+    import _counters
+
+    # Unconfigured is the shipped default and the state a cloner gets. It must
+    # be a silent no-op, not an error and not a slow call to nowhere.
+    assert not _counters.configured(), (
+        "the smoke run found a live counter store; it would write real numbers "
+        "into the public stats from a test")
+    code, out = post("/api/pulse", {"e": "visit", "r": "https://x.com/a"})
+    assert code == 204, code
+    body = json.loads(get("/api/pulse")[1])
+    assert body["configured"] is False, body
+
+    # A referrer must never reach storage as anything but a known name. This is
+    # the one privacy claim on /stats.html that is a property of code rather
+    # than of configuration, so it is asserted rather than trusted.
+    for raw, want in (("https://news.ycombinator.com/item?id=1", "hacker news"),
+                      ("https://www.google.co.uk/search?q=private", "search"),
+                      ("https://intranet.hospital.example/patient/9", "other"),
+                      ("", "direct")):
+        assert _counters.source(raw) == want, (raw, _counters.source(raw))
+
+    # A closed event set, so a client typo cannot create unbounded keys.
+    assert set(_counters.EVENTS) == {"visit", "doc", "match"}, _counters.EVENTS
+
+
+@check("the usage page ships and is reachable from the privacy page")
+def _stats_page():
+    code, body = get("/stats.html")
+    assert code == 200, code
+    html = body.decode()
+    assert "/api/pulse" in html, "the page does not name the endpoint it reads"
+    assert get("/stats.js")[0] == 200
+    priv = get("/privacy.html")[1].decode()
+    assert "/stats.html" in priv, "privacy page does not link the usage figures"
+    assert "_counters.py" in priv, "privacy page does not name the counting code"
 
 
 @check("crawler and share metadata are present")

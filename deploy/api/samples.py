@@ -12,6 +12,7 @@ from urllib.parse import parse_qs, urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import _counters  # noqa: E402
 from _runtime import quiet, reply  # noqa: E402
 from personas import PERSONAS  # noqa: E402
 from service import parse_local_date, rebase_persona  # noqa: E402
@@ -25,9 +26,10 @@ class handler(BaseHTTPRequestHandler):
         # contradicts its own central claim.
         q = parse_qs(urlparse(self.path).query)
         today = parse_local_date((q.get("today") or [None])[0])
-        return reply(self, [
+        reply(self, [
             {"key": k, "name": r["name"], "report": r["report"],
              "index_date": r["index_date"].isoformat()}
             for k, v in PERSONAS.items()
             for r in (rebase_persona(v, today),)
         ])
+        _counters.record("doc")

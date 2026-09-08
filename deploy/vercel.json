@@ -6,6 +6,11 @@
       "maxDuration": 30,
       "includeFiles": "**"
     },
+    "api/pulse.py": {
+      "memory": 256,
+      "maxDuration": 10,
+      "includeFiles": "api/*.py"
+    },
     "api/samples.py": {
       "memory": 512,
       "maxDuration": 10,

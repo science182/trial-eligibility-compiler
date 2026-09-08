@@ -1,7 +1,11 @@
 # Distribution
 
-Written 7 September 2026. Two things here: what is genuinely ready, and an
-honest read on the 1,000-users-in-a-week goal.
+Written 7 September 2026, revised 8 September. Two things here: what is
+genuinely ready, and an honest read on the users-in-a-week goal.
+
+**The two-week plan to 5,000 visitors, and the usage counters that measure it,
+are in `GROWTH.md`.** This document is the constraints. Read it first — none of
+them have relaxed.
 
 ---
 
@@ -116,18 +120,16 @@ true.
 
 ## 5. Measuring without breaking the privacy promise
 
-The privacy page says no analytics and no trackers, and that is currently true.
-Do not quietly add Google Analytics — the claim is the most credible thing on
-the site.
+**Done — see `GROWTH.md` §2.** The site now counts three integers of its own
+(visits, documents, matches) plus one count per referring site, publishes them
+at `/stats.html`, and `/privacy.html` was rewritten the same day to describe
+exactly that. No cookie, no stored ID, no hashed IP, nothing from the note.
 
-Options that keep it true:
-
-- **Vercel's request counts** (Project → Observability). Aggregate, no
-  per-visitor identity, nothing added to the page. This is enough to count
-  visitors and matches.
-- **Vercel Web Analytics** is privacy-preserving and cookieless, but it *is*
-  analytics and it adds a script. If you enable it, update `/privacy.html` the
-  same day. Do not let the page say one thing while the site does another.
+The rule that produced it is worth keeping: **the privacy page and the running
+site change on the same day, or not at all.** Do not add Google Analytics or
+Vercel Analytics on top — the first-party counters already answer the question,
+and the claim that there is no third-party tracking is the most credible
+sentence on the site.
 
 ---
 

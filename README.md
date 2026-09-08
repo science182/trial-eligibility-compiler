@@ -9,7 +9,8 @@ eligibility dates rather than categorical labels.
 **Live:** <https://trial-eligibility-compiler.vercel.app> &nbsp;·&nbsp;
 [How it works](https://trial-eligibility-compiler.vercel.app/about.html) &nbsp;·&nbsp;
 [Privacy](https://trial-eligibility-compiler.vercel.app/privacy.html) &nbsp;·&nbsp;
-[Terms](https://trial-eligibility-compiler.vercel.app/terms.html)
+[Terms](https://trial-eligibility-compiler.vercel.app/terms.html) &nbsp;·&nbsp;
+[Usage figures](https://trial-eligibility-compiler.vercel.app/stats.html)
 
 > **Not medical advice and not a medical device.** No regulator has reviewed
 > this. It is a research tool for coordinators and clinicians, it is not for

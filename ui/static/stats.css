@@ -1,0 +1,44 @@
+/* Only what /stats.html needs beyond the shared policy-page shell. */
+.u-live { margin-top: 26px; }
+.u-dim { color: var(--ink-4); }
+
+.u-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.u-tile { border: 1px solid var(--line); border-radius: var(--r);
+        padding: 16px 18px; background: var(--surface); }
+.u-tile .n { font-family: var(--serif); font-size: 34px; font-weight: 600;
+           letter-spacing: -.02em; color: var(--brand-700); line-height: 1.05; }
+.u-tile .k { margin-top: 6px; font-size: 11px; letter-spacing: .09em;
+           text-transform: uppercase; color: var(--ink-4); font-weight: 600; }
+.u-tile .sub { margin-top: 4px; font-size: 12.5px; color: var(--ink-3); }
+
+/* One bar per day. Height is the only encoding, so the axis is the baseline
+   and nothing else needs drawing. */
+.u-chart { margin-top: 22px; border: 1px solid var(--line); border-radius: var(--r);
+         padding: 16px 18px 12px; background: var(--surface); }
+.u-chart h3 { font-size: 11px; letter-spacing: .09em; text-transform: uppercase;
+            color: var(--ink-4); font-weight: 600; margin: 0 0 14px; }
+.u-bars { display: flex; align-items: flex-end; gap: 2px; height: 110px; }
+.u-bar { flex: 1 1 0; min-width: 2px; display: flex; flex-direction: column;
+       justify-content: flex-end; gap: 1px; height: 100%; }
+.u-bar i { display: block; border-radius: 1.5px; }
+.u-bar .v { background: var(--brand-200); }
+.u-bar .m { background: var(--brand-600); }
+.u-axis { display: flex; justify-content: space-between; margin-top: 8px;
+        font-size: 11px; color: var(--ink-4); }
+.u-key { display: flex; gap: 16px; margin-top: 10px; font-size: 12px;
+       color: var(--ink-3); }
+.u-key span::before { content: ""; display: inline-block; width: 9px; height: 9px;
+                    border-radius: 2px; margin-right: 6px; vertical-align: 0; }
+.u-key .u-kv::before { background: var(--brand-200); }
+.u-key .u-km::before { background: var(--brand-600); }
+
+.u-srcs { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }
+.u-srcs td { padding: 8px 12px; border-bottom: 1px solid var(--line);
+           color: var(--ink-2); }
+.u-srcs td:last-child { text-align: right; font-variant-numeric: tabular-nums;
+                      color: var(--ink); font-weight: 600; }
+
+@media (max-width: 640px) {
+  .u-tiles { grid-template-columns: 1fr; }
+  .u-tile .n { font-size: 28px; }
+}

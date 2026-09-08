@@ -16,7 +16,7 @@
 
 <main class="doc">
   <h1>Privacy</h1>
-  <p class="updated">Last updated 7 September 2026. This page describes what
+  <p class="updated">Last updated 8 September 2026. This page describes what
      actually happens, and each claim below was verified against the running
      deployment rather than assumed.</p>
 
@@ -58,7 +58,17 @@
     <tr><td>Your browser's local calendar date, sent so that computed
             eligibility dates are correct in your timezone</td>
         <td>Appears in request metadata</td><td>Vercel</td></tr>
+    <tr><td>Three counters: a visit, a document loaded, a match run</td>
+        <td>Yes — as running totals only, never as a record of one visit</td>
+        <td>This site</td></tr>
+    <tr><td>The <em>host</em> of the site you arrived from, if it is one of a
+            short list named in the source (otherwise counted as
+            &ldquo;other&rdquo;)</td>
+        <td>Yes — as a running total per site</td><td>This site</td></tr>
   </table>
+  <p>Those last two rows are new as of 8 September 2026 and are described in
+     full below. You can read them at any time:
+     <a href="/stats.html">the figures are public</a>.</p>
   <p>Log retention and handling are governed by
      <a href="https://vercel.com/legal/privacy-policy" target="_blank"
         rel="noopener noreferrer">Vercel's privacy policy</a>. We do not export,
@@ -69,8 +79,10 @@
     <li><strong>No accounts.</strong> There is no sign-up, no email address, no
         password, no profile.</li>
     <li><strong>No cookies.</strong> The site sets none, for any purpose.</li>
-    <li><strong>No analytics and no trackers.</strong> There is no Google
-        Analytics, no pixel, no session recording, no fingerprinting.</li>
+    <li><strong>No third-party analytics and no trackers.</strong> There is no
+        Google Analytics, no Vercel Analytics, no pixel, no session recording,
+        no fingerprinting, and nothing that could follow you to another site.
+        This site keeps three of its own counters, described below.</li>
     <li><strong>No third-party requests.</strong> The page loads only its own
         HTML, CSS and JavaScript. This is enforced in the browser by a Content
         Security Policy of <code>default-src 'self'</code>, so a third-party
@@ -81,6 +93,53 @@
      watch what the page requests, or read
      <a href="https://github.com/science182/trial-eligibility-compiler" target="_blank" rel="noopener noreferrer">the
      source</a>, which is the same code that is deployed.</p>
+
+  <h2>The three counters</h2>
+  <p>A free tool with no sign-up has no other way to know whether anyone is
+     using it. So the site counts three things, and the honest way to describe
+     what it keeps is this: <strong>integers, not records.</strong> Each event
+     adds one to a number. Nothing is appended to a list, so there is no entry
+     for any particular visit to be found in — a property of how it is stored,
+     not a promise about how it is handled.</p>
+  <ul>
+    <li><strong>Visits</strong> — the page was opened.</li>
+    <li><strong>Documents</strong> — a note was loaded into the box.</li>
+    <li><strong>Matches</strong> — a match was run.</li>
+  </ul>
+  <p>Alongside them, one count per referring site: if you arrived from Hacker
+     News, the number next to &ldquo;hacker news&rdquo; goes up by one. Only
+     the <em>host</em> is looked at, only hosts already named in the source are
+     recognised, and everything else is counted as &ldquo;other&rdquo;. A full
+     referring URL is never stored, because one can contain a search query or
+     the path of a private page.</p>
+  <p>What the counters do <strong>not</strong> involve:</p>
+  <ul>
+    <li><strong>No identifier.</strong> No cookie, no stored ID, no hashed IP
+        address, no fingerprint. Nothing recorded can tell whether two visits
+        came from the same person, which is what makes these aggregates rather
+        than a history of anybody.</li>
+    <li><strong>Nothing from your note.</strong> Not its text, not its length,
+        not what it matched. A counter is not a good enough reason to begin
+        keeping the one thing this service exists not to keep.</li>
+    <li><strong>Nothing shared.</strong> The numbers are not sold, exported to
+        an ad network, or joined to anything.</li>
+  </ul>
+  <p>One flag is stored <em>in your browser</em> — <code>sessionStorage</code>,
+     not a cookie — so that reloading the page in the same tab is not counted
+     twice. It is never sent anywhere and it is erased when you close the
+     tab.</p>
+  <p>Two ways to check all of this rather than believe it: the numbers are
+     published at <a href="/stats.html">/stats.html</a> from an endpoint you
+     can open yourself, <a href="/api/pulse">/api/pulse</a>; and the roughly
+     hundred lines that do the counting are
+     <a href="https://github.com/science182/trial-eligibility-compiler/blob/main/deploy/api/_counters.py"
+        target="_blank" rel="noopener noreferrer"><code>deploy/api/_counters.py</code></a>,
+     which is the code that is deployed.</p>
+  <p>The counters live in a Redis key-value store operated by
+     <a href="https://upstash.com/trust/privacy.pdf" target="_blank"
+        rel="noopener noreferrer">Upstash</a>, written to by this site's server.
+     Your browser never contacts it, and what is sent to it is a key name and
+     the number one.</p>
 
   <h2>Links to ClinicalTrials.gov</h2>
   <p>Every trial links to its record on ClinicalTrials.gov. Following one takes
@@ -98,7 +157,7 @@
      <a href="mailto:gelle.learning@gmail.com">gelle.learning@gmail.com</a>.</p>
 
   <div class="foot">
-    <a href="/">Tool</a><a href="/terms.html">Terms</a><a href="/about.html">How it works</a>
+    <a href="/">Tool</a><a href="/terms.html">Terms</a><a href="/about.html">How it works</a><a href="/stats.html">Usage</a>
   </div>
 </main>
 </body>

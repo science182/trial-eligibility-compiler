@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usage — Trial Eligibility Compiler</title>
+<meta name="description" content="Every number this site records about its own use, in public.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="legal.css">
+<link rel="stylesheet" href="stats.css">
+</head>
+<body>
+<header class="hdr">
+  <a class="back" href="/"><span aria-hidden="true">←</span><span class="lbl">Back</span></a>
+  <div class="brand"><div class="logo">T</div>
+    <div class="name">Eligibility&nbsp;Compiler</div></div>
+</header>
+
+<main class="doc">
+  <h1>Usage, in public</h1>
+  <p class="updated">This is everything the site records about its own use.
+     Not a summary of it — the whole of it. The page you are reading calls the
+     same endpoint anyone can call:
+     <a href="/api/pulse">/api/pulse</a>.</p>
+
+  <div id="live" class="u-live" aria-live="polite">
+    <p class="u-dim">Loading…</p>
+  </div>
+
+  <h2>What these three numbers mean</h2>
+  <table>
+    <tr><th>Counter</th><th>Incremented when</th></tr>
+    <tr><td><strong>Visits</strong></td>
+        <td>The page is opened. Once per browser tab, so a reload does not
+            count twice.</td></tr>
+    <tr><td><strong>Documents</strong></td>
+        <td>A note is loaded into the box — either the test document or one
+            you chose from your own machine.</td></tr>
+    <tr><td><strong>Matches</strong></td>
+        <td>A match actually runs against the 500-trial corpus.</td></tr>
+  </table>
+
+  <h2>What is not counted</h2>
+  <p>The counters are integers. They are incremented; nothing is appended to a
+     list. So there is no record for any individual visit to be found in, and
+     that is a property of the storage rather than a policy about it.</p>
+  <ul>
+    <li><strong>No identifier of any kind.</strong> No cookie, no stored ID, no
+        hashed IP, no fingerprint. Nothing here can tell whether two visits came
+        from the same person.</li>
+    <li><strong>Nothing from your note.</strong> Not its text, not its length,
+        not what it matched. A counter is not a good enough reason to start
+        keeping the one thing this service exists to not keep.</li>
+    <li><strong>No referring URL.</strong> Only a host, and only when it is a
+        site already named in the source — otherwise it is filed as
+        <em>other</em>. A full referring URL can carry a search query or the
+        path of a private page.</li>
+  </ul>
+  <p>The file that does this is about a hundred lines and is worth more than
+     this page:
+     <a href="https://github.com/science182/trial-eligibility-compiler/blob/main/deploy/api/_counters.py"
+        target="_blank" rel="noopener noreferrer"><code>deploy/api/_counters.py</code></a>.
+     It is the code that is deployed.</p>
+
+  <div class="foot">
+    <a href="/">Tool</a><a href="/about.html">How it works</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a>
+  </div>
+</main>
+<script src="stats.js"></script>
+</body>
+</html>

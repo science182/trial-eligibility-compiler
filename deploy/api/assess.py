@@ -12,6 +12,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import _counters  # noqa: E402
 from _runtime import (corpus, quiet, rate_limited,  # noqa: E402
                       read_json, reply)
 from service import assess_payload  # noqa: E402
@@ -46,7 +47,12 @@ class handler(BaseHTTPRequestHandler):
 
         try:
             compiled, meta = corpus()
-            return reply(self, assess_payload(compiled, meta, report, idx))
+            reply(self, assess_payload(compiled, meta, report, idx))
+            # After the bytes are written, so the counter's round trip is not
+            # in front of the visitor's result. Nothing about the report is
+            # passed in -- this adds 1 to an integer and nothing else.
+            _counters.record("match")
+            return
         except Exception as e:                        # noqa: BLE001
             # The page must render something rather than showing a dead
             # spinner. The message carries the exception only -- never the

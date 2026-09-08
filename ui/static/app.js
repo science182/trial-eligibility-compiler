@@ -745,6 +745,41 @@ $("#palette").addEventListener("click", (e) => {
 });
 $("#palette-open").addEventListener("click", () => DATA && openPalette());
 
+/* ─────────────────────────────────────────────── usage counters ── */
+/* Three integers -- opened the page, loaded a document, ran a match -- so the
+   question "did anyone use this" has an answer. There is no identifier of any
+   kind here: no cookie, no stored id, nothing derived from the note. The only
+   thing sent beyond the event name is document.referrer, which the server
+   reduces to a known site name ("hacker news") or "other" before storing it.
+
+   sendBeacon rather than fetch: it is queued by the browser and never delays
+   rendering, and it still delivers if the visitor leaves immediately -- which
+   is exactly the visit most worth counting during a launch.
+
+   sessionStorage holds one flag so a reload inside the same tab is not counted
+   twice. That flag never leaves the browser and dies with the tab. */
+function pulse(event, referrer) {
+  try {
+    const body = JSON.stringify({ e: event, r: referrer || "" });
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon("/api/pulse", new Blob([body], { type: "application/json" }));
+    } else {
+      fetch("/api/pulse", { method: "POST", body, keepalive: true });
+    }
+  } catch { /* a counter is never worth an error in a visitor's console */ }
+}
+
+try {
+  if (!sessionStorage.getItem("tec.seen")) {
+    sessionStorage.setItem("tec.seen", "1");
+    pulse("visit", document.referrer);
+  }
+} catch {
+  // Private mode and blocked site data throw on access. Count the visit
+  // anyway; an over-count on a reload beats losing the visitor entirely.
+  pulse("visit", document.referrer);
+}
+
 /* ─────────────────────────────────────────── document intake ── */
 /* The landing asks for a document instead of handing you one. Everything is
    read in the browser with FileReader -- the file is never uploaded anywhere;
@@ -822,6 +857,9 @@ function readFile(file) {
       return dropError(`${file.name} does not look like plain text.`);
     }
     showDocument(file.name, text, `${(file.size / 1024).toFixed(1)} KB · read in your browser`);
+    // The test document is counted server-side when /api/samples is fetched,
+    // so this path -- and only this path -- reports its own.
+    pulse("doc");
   };
   fr.readAsText(file);
 }

@@ -76,12 +76,23 @@ class Handler(SimpleHTTPRequestHandler):
                 for k, v in PERSONAS.items()
                 for r in (rebase_persona(v, today),)
             ])
+        if path == "/api/pulse":
+            # Answered so the local page behaves like the deployed one, but the
+            # local server counts nothing: there is no store behind it and a
+            # developer reloading a page is not a statistic.
+            return self._json({"configured": False, "totals": {}, "daily": [],
+                               "sources": {}, "days": 30})
         if path == "/":
             self.path = "/index.html"
         return super().do_GET()
 
     def do_POST(self):
-        if urlparse(self.path).path != "/api/assess":
+        path = urlparse(self.path).path
+        if path == "/api/pulse":
+            self.send_response(204)
+            self.end_headers()
+            return
+        if path != "/api/assess":
             return self._json({"error": "not found"}, 404)
         n = int(self.headers.get("Content-Length", 0))
         try:
